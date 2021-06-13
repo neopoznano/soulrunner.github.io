@@ -1,0 +1,50 @@
+header {
+    
+    background-position: center center;
+   
+}
+
+header>img {
+    max-width: 1000px;
+    max-height: 300px;
+    width: 100%;
+    transform: scale(100%);
+    margin: 0 0 0 0;
+
+}
+
+body {
+    /* background-color: rgb(25, 15, 48); */
+    background: linear-gradient(to bottom, rgb(42, 10, 68), #000000);
+    /* background: url("../img/webb-dark.png"); */
+    opacity: 1;
+    overflow: hidden;
+    
+
+}
+.description{
+    margin: 5px;
+    background-image: url(../img/webb-dark.png);
+    padding: 10px;
+    max-width: 1310px;
+    /* width: 500px; */
+    height:200px;
+   
+    color: white;
+    border: 2px solid white;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.addon{
+    padding: 10px;
+    max-width: 1000px;
+
+}
+
+.addon :first-child{
+    margin-left: 0;
+    
+}
+

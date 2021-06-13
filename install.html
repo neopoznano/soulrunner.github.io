@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <link rel="stylesheet" href="./css/for_install.css">
+    <link rel="stylesheet" href="./css/widget.css">
+    <link rel="stylesheet" href="./js/widget.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cabin&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="./js/widget.js"></script>
+</head>
+<header>
+    <span class="toggle-button">
+        <div class="menu-bar menu-bar-top"></div>
+        <div class="menu-bar menu-bar-middle"></div>
+        <div class="menu-bar menu-bar-bottom"></div>
+    </span>
+    <img src="./img/bezfona.png" alt="что то сломалось">
+    <div class="widget" >
+        <h3>Навигация</h3>
+        <ul>
+            <li><a href="./index.html">Главная</a></li>
+            <li><a href="./char.html">Персонажи</a></li>
+            <li><a href="./install.html">Техподдержка</a></li>
+            <li><a href="./team.html">О команде </a></li>
+
+        </ul>
+    </div>
+</header>
+
+<body>
+    <span class="span_body">
+        <script src="https://unpkg.com/vue@next"></script>
+        <div class="description">
+            <h3>
+                Есть трудности в прохождении игры?
+            </h3>
+            <p>
+                Опишите ваши вопросы в соседнем окне. Они никуда не поступят и кроме вас их никто не прочитает,
+                потому что у сайта нет бэкэнда, но может быть вам полегчает и вы сможете найти решение проблемы
+                самостоятельно.
+            </p>
+
+        </div>
+    </span>
+    <span class="addon">
+        <div id="app" class="container">
+            <div class="card bg-secondary text-center text-white">
+                <p class="h1"> {{ title }}</p>
+            </div>
+            <input type="text" class="w-100 rounded my-3" :placeholder="placeholder" v-model="inputValue"
+                v-on:keypress.enter="addNewNote" @keyup.esc='this.inputValue=""'>
+            <button class="btn btn-secondary text-white mt-2 mb-3" @click="addNewNote">
+                Добавить
+            </button>
+
+            <ul class="list-group" v-if="notes.length !== 0">
+                <li class="list-group-item" v-for='(note, index) in notes'>
+                    <div>{{index + 1}} : {{ note }}</div>
+                    <button class="btn btn-danger" @click="removenote(index)">Delete</button>
+                </li>
+
+
+                <li class="list-group-item h5" :class="notes.length>6 ? 'text-danger' : 'text-success'">
+                    Накопилось ошибок: {{ notes.length }}
+                </li>
+            </ul>
+            <div v-else class="text-white">Проблем нет :) </div>
+        </div>
+    </span>
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    title: "Список ошибок",
+                    placeholder: "Опишите ваш вопрос.",
+                    inputValue: "",
+                    notes: []
+                }
+            },
+            methods: {
+                addNewNote() {
+                    if (this.inputValue != '') {
+                        this.notes.push(this.inputValue);
+                        this.inputValue = "";
+                    }
+                },
+                removenote(index) {
+                    this.notes.splice(index, 1);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+<footer style="color: white;margin: 500px;">
+    <p></p>
+</footer>
+
+</html>

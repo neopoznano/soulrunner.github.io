@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(25, 15, 48);
+    background: linear-gradient(to bottom, rgb(42, 10, 68), #000000);
+    /* background: url("../img/webb-dark.png"); */
+    opacity: 1;
+}
+
+header>img {
+    max-width: 1000px;
+    max-height: 300px;
+    width: 100%;
+    transform: scale(100%);
+    margin: 0 0 0 0;
+
+}

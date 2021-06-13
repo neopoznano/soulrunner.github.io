@@ -1,0 +1,77 @@
+body {
+    background-color: rgb(25, 15, 48);
+    background: linear-gradient(to bottom, rgb(42, 10, 68), #000000);
+    /* background: url("../img/webb-dark.png"); */
+    opacity: 1;
+    display: grid;
+    grid-template-columns: 1fr 250px 150px 250px 293px 1fr;
+    grid-template-rows:
+        /* repeat(3, 500px);*/
+        300px 500px 1fr;
+    grid-gap: 1em;
+    grid-template-areas: ". header header header header header"
+        ". sidebar-L article article sidebar-R ."
+        ". footer footer footer sidebar-R .";
+    
+}
+
+header {
+    grid-area: header;
+
+}
+
+header>img {
+    max-width: 1000px;
+    max-height: 300px;
+    width: 100%;
+    transform: scale(100%);
+    margin: 0 0 0 0;
+
+}
+
+footer {
+    grid-area: footer;
+    color: white;
+    font-size: 12px;
+}
+
+.sidebar-left {
+    grid-area: sidebar-L;
+
+
+}
+
+.sidebar-left>p {
+    z-index: 10;
+    width: 10px;
+    height: 470px;
+    border-radius: 0px 5px 5px 0px;
+    transition: all 1s;
+}
+
+.sidebar-left>p:hover {
+    width: 65px;
+}
+
+article {
+    grid-area: article;
+    max-width: 500px;
+    min-width: 250px;
+    color: white;
+    text-align: center;
+    border: 2px solid;
+}
+
+article>h1 {
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+}
+
+article>p {
+    margin: 10px;
+}
+
+.sidebar-right {
+    grid-area: sidebar-R;
+    border: 2px solid white;
+}
